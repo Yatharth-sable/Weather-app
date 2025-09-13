@@ -1,0 +1,333 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Merriweather Sans', sans-serif;
+}
+
+:root {
+    --colorDark1: #34495e; /* A dark blue-gray for main text and elements */
+    --colorDark2: #3498db; /* A vibrant blue for buttons and accents */
+    --colorLight1: #ecf0f1; /* A light gray for backgrounds and inactive elements */
+    --colorLight2: #bdc3c7; /* A slightly darker gray for secondary backgrounds */
+    --accent-color: #e74c3c; /* A red color for hover/active states */
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--colorDark2), #2c3e50);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--colorDark1);
+    padding: 20px;
+}
+
+.wrapper {
+    width: 90%;
+    max-width: 550px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    padding: 2rem;
+}
+
+h1 {
+    text-transform: uppercase;
+    padding-bottom: 20px;
+    font-weight: 700;
+    color: var(--colorDark1);
+}
+
+/* ---------------------------------------------------- */
+
+.tab-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    padding: 5px 10px;
+    background-color: var(--colorLight1);
+    border-radius: 10px;
+}
+
+.tab {
+    cursor: pointer;
+    letter-spacing: 1.5px;
+    padding: 8px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+    font-weight: 600;
+}
+
+.tab:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.tab.current-tab {
+    background-color: var(--colorDark2);
+    color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* ---------------------------------------------------- */
+
+.weather-container {
+    margin-top: 2rem;
+}
+
+.sub-container {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 2rem 0;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.sub-container.active {
+    display: flex;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.btn {
+    all: unset;
+    font-size: 0.9rem;
+    border-radius: 25px;
+    text-transform: uppercase;
+    background-color: var(--colorDark2);
+    color: #fff;
+    cursor: pointer;
+    padding: 12px 30px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #2980b9;
+}
+
+/* ---------------------------------------------------- */
+
+.grant-location-container img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 1.5rem;
+}
+
+.grant-location-container p:first-of-type {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--colorDark1);
+}
+
+.grant-location-container p:last-of-type {
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-top: 0.75rem;
+    margin-bottom: 1.75rem;
+    letter-spacing: 0.5px;
+}
+
+/* ---------------------------------------------------- */
+
+.loading-container img {
+    width: 150px;
+    height: 150px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-container p {
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+/* ---------------------------------------------------- */
+
+.user-info-container {
+    gap: 15px;
+}
+
+.name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.name p {
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+.name img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    border: 1px solid var(--colorLight2);
+    border-radius: 5px;
+}
+
+.user-info-container p[data-weatherDesc] {
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.user-info-container img[data-weatherIcon] {
+    width: 90px;
+    height: 90px;
+    margin: 0.5rem 0;
+}
+
+.user-info-container p[data-temp] {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+.parameter-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.parameter {
+    width: 30%;
+    min-width: 120px;
+    background: rgba(236, 240, 241, 0.6);
+    border-radius: 10px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.parameter:hover {
+    transform: translateY(-5px);
+}
+
+.parameter img {
+    width: 50px;
+    height: 50px;
+}
+
+.parameter p:first-of-type {
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--colorDark1);
+}
+
+.parameter p:last-of-type {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--colorDark2);
+}
+
+/* ---------------------------------------------------- */
+
+.form-container {
+    display: none;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 2rem;
+}
+
+.form-container.active {
+    display: flex;
+}
+
+.form-container input {
+    all: unset;
+    flex-grow: 1;
+    border-radius: 25px;
+    background-color: var(--colorLight1);
+    height: 40px;
+    padding: 0 20px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.form-container input::placeholder {
+    color: var(--colorDark1);
+    opacity: 0.7;
+}
+
+.form-container input:focus {
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2), 0 0 0 3px var(--colorDark2);
+}
+
+.form-container .btn {
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-bottom: 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-container .btn:hover {
+    background-color: #2980b9;
+}
+
+/* ---------------------------------------------------- */
+
+@media (max-width: 600px) {
+    .wrapper {
+        padding: 1.5rem;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .tab {
+        font-size: 0.9rem;
+    }
+
+    .user-info-container p[data-temp] {
+        font-size: 2.5rem;
+    }
+    
+    .parameter-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .parameter {
+        width: 100%;
+    }
+}
